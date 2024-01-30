@@ -1,7 +1,11 @@
 // console.log("Helo")
 const express = require("express"); //import express
+const cors = require("cors");
 const app = express(); //sosdaem express aplikac
 const port = 3000;
+
+app.use(cors())
+
 app.get("/", (req, res) => {
   res.send("Helo privet");
 });
@@ -12,12 +16,10 @@ app.get("/cars", (req, res) => {
   res.send(cars);
 });
 
-// const cars = [
-//   (id: 1,)
-// ];
+const users = ["Alex", "Rose", "Megan"];
 
-app.get("/cars", (req, res) => {
-  res.send(cars);
+app.get("/users", (req, res) => {
+  res.send(users);
 });
 
 app.listen(port, () => {
